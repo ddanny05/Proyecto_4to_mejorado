@@ -88,24 +88,22 @@ def formulario_productos():
     listar_productos(tree_productos)
 
 # Función para eliminar cliente
-# Eliminar Cliente (asegúrate de que esto esté dentro de la lógica de tu interfaz)
-
-def eliminar_cliente_interface():
+def eliminar_cliente_gui():
     selected_item = tree_clientes.selection()
     if selected_item:
-        cedula = tree_clientes.item(selected_item)["values"][0]  # Cédula del cliente seleccionado
-        eliminar_cliente(cedula, tree_clientes)
+        cedula_cliente = tree_clientes.item(selected_item[0])['values'][0]
+        eliminar_cliente(cedula_cliente, tree_clientes)
     else:
-        messagebox.showwarning("Selección", "Debe seleccionar un cliente para eliminar.")
+        messagebox.showwarning("Seleccionar Cliente", "Por favor, seleccione un cliente para eliminar.")
 
 # Función para eliminar producto
-def eliminar_producto_interface():
+def eliminar_producto_gui():
     selected_item = tree_productos.selection()
     if selected_item:
-        codigo = tree_productos.item(selected_item)["values"][0]  # Código del producto seleccionado
-        eliminar_producto(codigo, tree_productos)
+        codigo_producto = tree_productos.item(selected_item[0])['values'][0]
+        eliminar_producto(codigo_producto, tree_productos)
     else:
-        messagebox.showwarning("Selección", "Debe seleccionar un producto para eliminar.")
+        messagebox.showwarning("Seleccionar Producto", "Por favor, seleccione un producto para eliminar.")
 
 # Ventana principal
 ventana = tk.Tk()
